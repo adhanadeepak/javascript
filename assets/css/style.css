@@ -1,3 +1,88 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
+
+*{
+    box-sizing: border-box;
+}
+
+#main_wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#main_wrapper > div{
+    width: 25%;
+    border: 1px solid #444444;
+    margin-right: 20px;
+    padding: 4px;
+    text-align: center;
+}
+
+#main_wrapper > div:last-child{
+    margin-right: 0;
+}
+
+@media screen and (max-width: 765px) {
+    #main_wrapper {
+        flex-direction: column;
+    } 
+    #main_wrapper > div{
+        width: 100%;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+}
+
+/* -------Comments ---------- */
+
+.comments_wrapper {
+    border: 1px solid #444444;
+}
+
+.comments_wrapper > .add_comments_wrapper{
+    padding: 16px;
+}
+
+.comments_wrapper > .add_comments_wrapper label{
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.comments_wrapper > .add_comments_wrapper > .input_primary{
+    width: 250px;
+    font-size: 14px;
+    height: 40px;
+}
+
+.comments_wrapper > .comments_list{
+    padding: 16px;
+    list-style: none;
+}
+
+.comments_wrapper > .comments_list > li > .post{
+    max-width: 350px;
+    width: 350px;
+    height: 100px;
+    max-height: 8   0px;
+    overflow: scroll;
+}
+
+.btn {
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn_primary{
+    background-color: #ddd;
+    color: #444444;
+    margin-left: 8px;
+}
