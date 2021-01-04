@@ -12,6 +12,10 @@ server.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/templates/index.html'))
 })
 
+server.get('/example', (req, res) => {
+  res.sendFile(path.join(__dirname + '/templates/example.html'))
+})
+
 server.use('/static',express.static(path.join(__dirname,'assets'),{
     maxAge: '1d',
 }));

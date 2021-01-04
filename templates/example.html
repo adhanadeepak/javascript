@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Deepak Adhana">
+        <meta name="description" content="Website to practice html tags">
+        <meta name='viewport' content='width=device-width,width = 320, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes'>
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+        <script src="static/js/class_example.js" type="application/javascript"></script>
+    </head>
+    <body>
+        <div>
+            <form id="collect_user_data" onsubmit="handleForm(event)">
+                <label for="currency">Currency</label>
+                <input id="currency" type="text" value="INR">
+                <label for="gender">Select Gender</label>
+                    <label for="male">Male</label>
+                        <input id="male" name="gender" type="radio" value="male">
+                    <label for="female">Female</label>
+                        <input id="female" name="gender" type="radio" value="female">
+                    <label for="other">Other</label>
+                        <input id="other" name="gender" type="radio" value="other">
+                <label for="country">Country</label>
+                <select name="select_country" id="country">
+                    <option value="INDIA">INDIA</option>
+                    <option value="USA">USA</option>
+                </select>
+                <button type="submit">SUBMIT</button>
+            </form>
+            <div id="user_data" style="display: none;">
+                <h5>Data</h5>
+                <label for="selected_currency">Selected Currency</label>
+                <input type="text" id="selected_currency" readonly value="">
+                <label for="selected_gender">Selected Gender</label>
+                <input type="text" id="selected_gender" readonly value="">
+                <label for="selected_country">Selected Country</label>
+                <input type="text" id="selected_country" readonly value="">
+            </div>
+
+            <picture>
+                <!-- 1200px -->
+                <source srcset="image1.png 2x" >
+                <!-- 600px -->
+                <img src="image.png" alt="default image">   
+            </picture>
+        </div>
+        <script>
+            function handleForm(event){
+                event.preventDefault();
+                console.log(event);
+                let currency = document.getElementById('currency');
+                let genderMale = document.getElementById('male');
+                let genderFemale = document.getElementById('female');
+                let country = document.getElementById('country');
+                let gender = document.querySelector('input[name=gender]').value
+                
+                let userData = document.getElementById('user_data');
+                
+                let selectedCurrency = document.getElementById('selected_currency');
+                let selectedGender = document.getElementById('selected_gender');
+                let selectedCountry = document.getElementById('selected_country');
+
+                selectedCountry.value = country.value;
+                selectedGender.value = gender;
+                selectedCurrency.value = currency.value;
+
+                userData.style.display = 'block';
+            }
+
+            function getSelectedGender(){
+
+            }
+        </script>
+    </body>
+</html>
+
+<!-- 
+    * Text box for currency
+    * Radio button for gender
+    * drop down for country
+    * submit button
+    * Populate data in div below the form element
+
+
+ -->

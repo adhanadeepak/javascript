@@ -1,4 +1,5 @@
 import React from 'react';
+import Post from './Post';
 
 export default function App(){
     const[state,setState] = React.useState({comments:[
@@ -11,6 +12,7 @@ export default function App(){
 
     const handleInput = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         let input = e.target.value;
         setState((prevState) => {
             return {
@@ -27,6 +29,7 @@ export default function App(){
         commentsList.push({post: post,author: 'Deepak'})
         setState((prevState) => {
             return {
+                ...prevState,
                 inputComment: '',
                 comments: commentsList
             }
@@ -46,17 +49,9 @@ export default function App(){
                     <input id="comment_box" className="input_primary" onChange={handleInput} value={state.inputComment}/>
                     <button type="submit" className="btn btn_primary">Post</button> 
                 </form>
-                <ul className="comments_list">
-                    <h4>Post</h4>
-                    { state.comments && state.comments.length > 0 && state.comments.map((comment) =>{
-                        return(
-                            <li><textarea className="post">{comment.post}</textarea></li>
-                        )
-                    })} 
-                </ul>
+                <Post comments={state.comments}/>
             </div>
         )
-    
 
 }
 
